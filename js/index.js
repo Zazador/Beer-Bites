@@ -1,11 +1,10 @@
 $(document).ready(function(){
 	var ingredients;
-	console.log("start");
 
 
 	$("#submit").on("click", function() {
-		ingredients = $('#ingredient1').val();
-		food(ingredients);
+		ingredients = $('#ingredients').val();
+		food();
 		beer();
 	});
 
@@ -34,7 +33,7 @@ $(document).ready(function(){
         		console.log(foodPairing);
         		if (foodPairing.toLowerCase().indexOf(ingredients) >= 0) {
         			beers.push(results[i].name);
-        			$("#beer").append(results[i].name + "<br/>");
+        			$("#testp").append(results[i].name + "<br/>");
         		}
         	} else {
         		console.log("no food");
@@ -44,10 +43,10 @@ $(document).ready(function(){
     });
 }
 
-function food(ing1) {
+function food() {
 
 	// Constructing a URL to search Edamam for a pairing beer
-	var queryURL = "https://api.edamam.com/search?q=" + ing1 + "&app_id=00c0dc61&app_key=815737e5636a521c4eebc08d9bed891e";
+	var queryURL = "https://api.edamam.com/search?q=" + ingredients + "&app_id=00c0dc61&app_key=815737e5636a521c4eebc08d9bed891e";
 
 	// Performing our AJAX GET request
 	$.ajax({
@@ -63,7 +62,7 @@ function food(ing1) {
         for (var i=0 ; i < 10 ; i++)
         {
         	if (results[i].recipe.label)
-        		$("#recipe").append(results[i].recipe.label + "<br/>");
+        		$("#testp").append(results[i].recipe.label + "<br/>");
 
         }
     });
