@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">
 
+    <link href="css/style.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -26,84 +28,128 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <div class="brand"></div>
+        <div class="brand"></div>
 
-    <div class="container">
+        <div class="container">
 
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
-                        <!-- Indicators -->
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <div id="carousel-example-generic" class="carousel slide">
+                            <!-- Indicators -->
 
-                        <!-- Wrapper for slides -->
-                        <div>
-                            <img src="img/BeerBitesTrans.png" style = "width: 325px" alt="BEEERBITES!!">
+                            <!-- Wrapper for slides -->
+                            <div>
+                                <img src="img/BeerBitesTrans.png" style = "width: 325px" alt="BEEERBITES!!">
+                            </div>
+                            <p>The World-Renown Recipe-Generating-Beer-Pairing App</p>
+
                         </div>
-                        <p>The World-Renown Recipe-Generating-Beer-Pairing App</p>
-        
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
             <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Build a website
-                        <strong>worth visiting</strong>
-                    </h2>
-                    <!--ben's handywork goes here-->
+                <div class="row"> 
+
+                    <h2 class="intro-text text-left">
+                        <strong>Ingredients</strong>
+                    </h2> 
+                    
+                    <div class="col-md-4">     
+                        <form>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 1</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient1">
+                                </div> 
+                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 2</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient2">
+                                </div> 
+                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 3</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient3">
+                                </div> 
+                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 4</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient4">
+                                </div> 
+                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 5</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient5">
+                                </div> 
+                                <button class="glyphicon glyphicon-plus" id ="plus-sign" aria-hidden="true"></button>
+                                <button type="button" class="btn btn-warning" id="submit">Submit</button>
+                            </div>
+                        </form> 
+                    </div> 
+                    <div class = "col-md-4" id ="recipe"> 
+                        Recipe 
+                    </div> 
+                    <div class = "col-md-4" id ="beer"> 
+                        Beer 
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Beer Bites
-                        <strong>Instructions</strong>
-                    </h2>
-                    <hr>
-                    <p>Beer Bites is perfect for the days when you don't know what to cook for yourself, but have a fridge full of food.  To start, simply input the ingredients that would like to use from your refridgerator under the "Ingredients" header up above.</p>
-                    <p>Beer Bites when then use this information to formulate a recipe that you can use to cook up these ingredients! On top of that, Beer Bites will recommend a beer that would pair well with the given recipe idea! Feel free to try any assortment of ingredients!</p>
+                <div class = "col-md-4"> 
+                    empty container 
+                </div> 
+                <div class = "col-md-4" id ="chart"> 
+                    chart 
                 </div>
+                <div class = "col-md-4" id ="mostRecent"> 
+                    most recent
+                </div>
+
             </div>
-        </div>
 
-    </div>
-    <!-- /.container -->
 
-    <footer>
-        <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Beer Bites 2017</p>
+                <div class="box">
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">Beer Bites
+                            <strong>Instructions</strong>
+                        </h2>
+                        <hr>
+                        <p>Beer Bites is perfect for the days when you don't know what to cook for yourself, but have a fridge full of food.  To start, simply input the ingredients that would like to use from your refridgerator under the "Ingredients" header up above.</p>
+                        <p>Beer Bites when then use this information to formulate a recipe that you can use to cook up these ingredients! On top of that, Beer Bites will recommend a beer that would pair well with the given recipe idea! Feel free to try any assortment of ingredients!</p>
+                    </div>
                 </div>
             </div>
+
         </div>
-    </footer>
+        <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; Beer Bites 2017</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Script to Activate the Carousel -->
+        <script>
+            $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
-    </script>
+</script>
 
 </body>
 
