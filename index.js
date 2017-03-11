@@ -23,7 +23,7 @@ $(document).ready(function(){
     	console.log("video V");
     	console.log(response);
     	for (var i = 0; i < 3; i++) {
-    		$("#recipe").append('<iframe width="560" height="315" src=https://www.youtube.com/embed/' + response.items[i].id.videoId
+    		$("#recipeReturn").append('<iframe width="560" height="315" src=https://www.youtube.com/embed/' + response.items[i].id.videoId
     			+ '?rel=0&amp;showinfo=0 frameborder="0" allowfullscreen></iframe>');
     	}
 
@@ -58,7 +58,7 @@ function food() {
         // Storing an array of results in the results variable
         console.log(response);
         if (response[0].image) {
-        	$("#recipe").append("<img src=" + response[0].image+ "></img>");
+        	$("#recipeReturn").append("<img src=" + response[0].image+ "></img>");
         }
         var title = response[0].title;
         videos(title);
