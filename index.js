@@ -1,21 +1,22 @@
 $(document).ready(function(){
-	var ingredients;
 	console.log("start");
 
 
 	$("#submit").on("click", function() {
 		ingredients = $('#ingredient1').val();
-		food(ingredients);
+		food();
 		beer();
+		console.log("three");
 	});
 
 
 
 	function beer() {
+		console.log("hello");
 
 	// Constructing a URL to search BreweryDB for a pairing beer
-	var queryURL = "https://api.brewerydb.com/v2/beers?key=5bf8c31d94fdecf7e055c282e92112b1&availableId=1&format=json";
-
+	var queryURL = "http://quotes.rest/qod.json";
+	console.log("hi");
 	// Performing our AJAX GET request
 	$.ajax({
 		url: queryURL,
@@ -23,49 +24,44 @@ $(document).ready(function(){
 	})
     // After the data comes back from the API
     .done(function(response) {
-        // Storing an array of results in the results variable
-        var results = response.data;
-        //console.log(results);
-        var beers = [];
-        for (var i=0 ; i < 50 ; i++)
-        {
-        	if (results[i].foodPairings) {
-        		var foodPairing = results[i].foodPairings;
-        		console.log(foodPairing);
-        		if (foodPairing.toLowerCase().indexOf(ingredients) >= 0) {
-        			beers.push(results[i].name);
-        			$("#beer").append(results[i].name + "<br/>");
-        		}
-        	} else {
-        		console.log("no food");
-        	}
-        }
-        console.log(beers);
+    	console.log("response:" + response);
+    	var results = response.contents;
+    	console.log(results.quotes[0].quote);
+    	$("#beer").append(results.quotes[0].quote + "<br/>");
+        //$("#recipe").append("<img src=" + results.quotes[0].background + "></img>");
     });
 }
 
 function food(ing1) {
+	var ingredients = "";
 
-	// Constructing a URL to search Edamam for a pairing beer
-	var queryURL = "https://api.edamam.com/search?q=" + ing1 + "&app_id=00c0dc61&app_key=815737e5636a521c4eebc08d9bed891e";
+	//Iterate through form to get all ingredients
+	$('#ingredientForm *').filter(':input').each(function(){
+		if ($(this).val().trim()) {
+			console.log("this.val: " + $(this).val().trim());
+			ingredients+=$(this).val().trim();
+			ingredients+=",";
+		}
+	});
+
+	// Constructing a URL to search Spponacular for recipe based off ingredient parameters
+	var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="
+	+ ingredients + "&limitLicense=false&number=1&ranking=1";
 
 	// Performing our AJAX GET request
 	$.ajax({
 		url: queryURL,
 		method: "GET",
+		headers: {"X-Mashape-Key": "d0ELoE2NYemshHsjC4UHoHlfN189p1ce0fZjsnJIIYtwhHJyBm",
+		"Accept": "application/json"}
 	})
     // After the data comes back from the API
     .done(function(response) {
         // Storing an array of results in the results variable
-        var results = response.hits;
-        console.log(results);
+        console.log(response);
+        if (response[0].image)
+        	$("#recipe").append("<img src=" + response[0].image+ "></img>");
 
-        for (var i=0 ; i < 10 ; i++)
-        {
-        	if (results[i].recipe.label)
-        		$("#recipe").append(results[i].recipe.label + "<br/>");
-
-        }
     });
 }
 
