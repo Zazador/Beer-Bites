@@ -2,7 +2,21 @@
 
 	margin-left: 5px;
 
- }
+ } 
+
+ #ingredientColumn { 
+	
+	width: 300px;
+
+  } 
+
+  #recipeColumn { 
+
+	width: 300px;
+	margin-left: 150px;
+
+
+   }
 
 .form-group { 
 
@@ -25,6 +39,12 @@ text-align: left;
 
   }
 
+#submitContainer { 
+
+	margin-bottom: 15px;
+
+ }
+
 #plus-sign {
     appearance: none;
     -webkit-appearance: none;
@@ -32,13 +52,23 @@ text-align: left;
     outline: none;
     border: 0;
     background: transparent; 
-    float: right;
+    float: right; 
+    margin-right: 45px;
 }
 
  .btn-warning { 
 
 margin-top: 30px; 
-background-color: #E19F3E;
+margin-left: 10px;
+margin-right: 10px;
+background-color: #E19F3E; 
+
+  } 
+
+  .btn-danger { 
+
+margin-top: 30px; 
+
 
   } 
 
