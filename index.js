@@ -24,7 +24,7 @@ $(document).ready(function(){
     	console.log(response);
     	for (var i = 0; i < 3; i++) {
     		$("#recipe").append('<iframe width="560" height="315" src=https://www.youtube.com/embed/' + response.items[i].id.videoId
-    			+ 'frameborder="0" allowfullscreen></iframe>');
+    			+ '?rel=0&amp;showinfo=0 frameborder="0" allowfullscreen></iframe>');
     	}
 
     });
