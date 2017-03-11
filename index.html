@@ -9,28 +9,35 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+
     <title>Beer Bites - The infamous beer pairing application!</title>
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/business-casual.css" rel="stylesheet">
+<<<<<<< HEAD
+    <link href="css/business-casual.css" rel="stylesheet"> 
 
+    <!-- Link to external bootstrap-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    
+    <!--Ben's CSS stylesheet-->
     <link href="css/style.css" rel="stylesheet">
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"> 
+
+    <!--Jquery reference -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--Link to Ben's JS file --> 
+    <script type="text/javascript" src="js/app.js"></script>
+    <!--Link to Zach's JS file --> 
     <script src="index.js"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+=======
+        
 
     </head>
 
@@ -58,59 +65,93 @@
             </div>
 
             <div class="box">
-                <div class="row"> 
-
+            <div class="row"> 
+                     
+                    
+                <div class="col-md-3" id ="ingredientColumn">
+                    
                     <h2 class="intro-text text-left">
                         <strong>Ingredients</strong>
-                    </h2> 
+                    </h2>
                     
-                    <div class="col-md-4">     
-                        <form>
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 1</label>
-                                <div class="col-10">
-                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient1">
-                                </div> 
-                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 2</label>
-                                <div class="col-10">
-                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient2">
-                                </div> 
-                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 3</label>
-                                <div class="col-10">
-                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient3">
-                                </div> 
-                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 4</label>
-                                <div class="col-10">
-                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient4">
-                                </div> 
-                                <label for="example-text-input" class="col-2 col-form-label">Ingredient 5</label>
-                                <div class="col-10">
-                                    <input class="form-control" type="text" value="Your Ingredient" id="ingredient5">
-                                </div> 
-                                <button class="glyphicon glyphicon-plus" id ="plus-sign" aria-hidden="true"></button>
-                                <button type="button" class="btn btn-warning" id="submit">Submit</button>
+                    
+                    <form>
+                    <div class="form-group row" id ="ingredientBoxOG">
+                        <label for="example-text-input" class="col-2 col-form-label">Ingredient 1</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="ingredient">
+                            </div> 
+                        <label for="example-text-input" class="col-2 col-form-label">Ingredient 2</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="ingredient">
+                            </div> 
+                        <label for="example-text-input" class="col-2 col-form-label">Ingredient 3</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="ingredient">
+                            </div> 
+                        <label for="example-text-input" class="col-2 col-form-label">Ingredient 4</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="ingredient">
+                            </div> 
+                        <label for="example-text-input" class="col-2 col-form-label">Ingredient 5</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" id="ingredient">
                             </div>
-                        </form> 
-                    </div> 
-                    <div class = "col-md-4" id ="recipe"> 
-                        Recipe<p id ="recipe"></p>
-                    </div> 
-                    <div class = "col-md-4" id ="beer"> 
-                        Beer <p id ="beer"></p>
+
+                        <div id ="ingredientBox">
+                                
+                        </div>
                     </div>
-                </div>
+                    
+                    <div id ="submitContainer">
+                        <button class="glyphicon glyphicon-plus" id ="plus-sign" aria-hidden="true"></button>
 
-                <div class = "col-md-4"> 
-                    empty container 
+                        <span>  
+                            <button type="button" class="btn btn-warning" id="submit">Submit</button>
+                            <button type="reset" class="btn btn-danger" id="clear">Clear</button>
+
+                        </span> 
+                    </div>
+                    
+                    </form> 
+                    </div>
+
+            <div class = "col-md-3" id ="recipeColumn"> 
+                
+                <h2 class="intro-text text-left">
+                    <strong>Recipe</strong>
+                </h2>
+
+                <div id = "recipeReturn"> 
+
                 </div> 
-                <div class = "col-md-4" id ="chart"> 
-                    chart 
-                </div>
-                <div class = "col-md-4" id ="mostRecent"> 
-                    most recent
-                </div>
-
             </div>
+                    
+            <div class = "col-md-3" id ="videoColumn"> 
+                <h2 class="intro-text text-left">
+                    <strong>Related Videos:</strong>
+                </h2> 
+
+                <div id="videoReturn"> 
+
+                </div> 
+                
+            </div>
+
+        </div> 
+
+                    <div class = "col-md-3"> 
+                    empty container 
+                    </div> 
+                    <div class = "col-md-3" id ="chart"> 
+                    chart 
+                    </div>
+                    <div class = "col-md-3" id ="mostRecent"> 
+                    most recent
+                    </div>
+
+                    
+    </div>
 
 
             <div class="row">
@@ -145,13 +186,6 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
-
-        <!-- Script to Activate the Carousel -->
-        <script>
-            $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-</script>
 
 </body>
 
