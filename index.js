@@ -3,20 +3,16 @@ $(document).ready(function(){
 
 
 	$("#submit").on("click", function() {
-		ingredients = $('#ingredient1').val();
 		food();
-		beer();
-		console.log("three");
 	});
 
 
 
-	function beer() {
-		console.log("hello");
+	function videos(title) {
 
-	// Constructing a URL to search BreweryDB for a pairing beer
-	var queryURL = "http://quotes.rest/qod.json";
-	console.log("hi");
+	// Constructing a URL to search YouTube for related videos
+	var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + title + "&key=AIzaSyBqXcI3KIh9b6TZX5uqupoy-I6zT68irDY&"
+	+ "maxResults=3&dataType=json";
 	// Performing our AJAX GET request
 	$.ajax({
 		url: queryURL,
@@ -24,15 +20,17 @@ $(document).ready(function(){
 	})
     // After the data comes back from the API
     .done(function(response) {
-    	console.log("response:" + response);
-    	var results = response.contents;
-    	console.log(results.quotes[0].quote);
-    	$("#beer").append(results.quotes[0].quote + "<br/>");
-        //$("#recipe").append("<img src=" + results.quotes[0].background + "></img>");
+    	console.log("video V");
+    	console.log(response);
+    	for (var i = 0; i < 3; i++) {
+    		$("#recipe").append('<iframe width="560" height="315" src=https://www.youtube.com/embed/' + response.items[i].id.videoId
+    			+ 'frameborder="0" allowfullscreen></iframe>');
+    	}
+
     });
 }
 
-function food(ing1) {
+function food() {
 	var ingredients = "";
 
 	//Iterate through form to get all ingredients
@@ -59,10 +57,14 @@ function food(ing1) {
     .done(function(response) {
         // Storing an array of results in the results variable
         console.log(response);
-        if (response[0].image)
+        if (response[0].image) {
         	$("#recipe").append("<img src=" + response[0].image+ "></img>");
+        }
+        var title = response[0].title;
+        videos(title);
 
     });
+
 }
 
 });
