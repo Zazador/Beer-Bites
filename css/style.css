@@ -2,80 +2,81 @@
 
 	margin-left: 5px;
 
- } 
+} 
 
- #ingredientColumn { 
+#ingredientColumn { 
 	
 	width: 300px;
 
-  } 
+} 
 
-  #recipeColumn { 
+#recipeColumn { 
 
 	width: 300px;
-	margin-left: 150px;
+  text-align: center;
 
 
-   }
+}
 
 .form-group { 
 
-margin-top: 20px; 
-width: 225px;
+  margin-top: 20px; 
+  width: 225px;
 
- }
+}
 
 .col-10 { 
 
-width: 200px;  
-margin-top: 5px; 
-margin-bottom: 5px; 
+  width: 200px;  
+  margin-top: 5px; 
+  margin-bottom: 5px; 
 
- } 
+} 
 
- .col-form-label { 
+.col-form-label { 
 
-text-align: left;
+  text-align: left;
 
-  }
+}
 
 #submitContainer { 
 
 	margin-bottom: 15px;
 
- }
+}
 
 #plus-sign {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    border: 0;
-    background: transparent; 
-    float: right; 
-    margin-right: 45px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: 0;
+  background: transparent; 
+  float: right; 
+  margin-right: 45px;
 
 }
 
- .btn-warning { 
+.btn-warning { 
 
-margin-top: 30px; 
-margin-left: 10px;
-margin-right: 10px;
-background-color: #E19F3E; 
+  margin-top: 30px; 
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #E19F3E; 
 
-  } 
+} 
 
-  .btn-danger { 
+.btn-danger { 
 
-margin-top: 30px; 
+  margin-top: 30px; 
 
 
-  } 
+} 
 
-  #recipe { 
+#recipe { 
 
 	vertical-align: top;
+
 
    }
 
@@ -84,3 +85,4 @@ margin-top: 30px;
 	margin-left: 200px;
 
     }
+
