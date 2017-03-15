@@ -28,7 +28,8 @@ $(document).ready(function() {
 				console.log("video V");
 				console.log(response);
 				for (var i = 0; i < 3; i++) {
-					$("#videoReturn").append('<iframe width="300" height="169" src=https://www.youtube.com/embed/' + response.items[i].id.videoId + '?rel=0&amp;showinfo=0 frameborder="0" allowfullscreen></iframe>');
+					$("#vid"+[i]).attr("src", 'https://www.youtube.com/embed/' + response.items[i].id.videoId + '?rel=0&amp;showinfo=0');
+					//$("#videoReturn").append('<iframe width="300" height="169" src=https://www.youtube.com/embed/' + response.items[i].id.videoId + '?rel=0&amp;showinfo=0 frameborder="0" allowfullscreen></iframe>');
 				}
 			});
 	}
