@@ -1,176 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-    <title>Beer Bites - The infamous beer pairing application!</title>
-
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-
-    <link href="css/business-casual.css" rel="stylesheet"> 
-
-    <!-- Link to external bootstrap-->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>Beer Bites - The infamous beer pairing application!</title><!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"><!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet"><!-- Link to external bootstrap-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    
     <!--Ben's CSS stylesheet-->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- Fonts -->
+    <link href="css/style.css" rel="stylesheet"><!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"><!--Jquery reference -->
 
-    <!--Jquery reference -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!--Chart.js reference -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
-    <!--Link to Ben's JS file --> 
-    <script type="text/javascript" src="js/app.js"></script>
-    <!--Link to Zach's JS file --> 
-    <script src="index.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script><!--Chart.js reference -->
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js">
+    </script><!--Link to Ben's JS file -->
+    <script src="js/app.js" type="text/javascript">
+    </script><!--Link to Zach's JS file -->
+    <script src="index.js">
+    </script>
 </head>
-
 <body>
-
     <div class="brand"></div>
-
     <div class="container">
-
         <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
+                    <div class="carousel slide" id="carousel-example-generic">
                         <!-- Indicators -->
-
                         <!-- Wrapper for slides -->
-                        <div>
-                            <img src="img/GetCookinLogo.png" style = "width: 325px" alt="BEEERBITES!!">
-                        </div>
+                        <div><img alt="BEEERBITES!!" src="img/GetCookinLogo.png" style="width: 325px"></div>
                         <p>The World-Renown Recipe-Generating-Beer-Pairing App</p>
-
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="box">
-            <div class="row"> 
-
-
-                <div class="col-md-3" id ="ingredientColumn">
-
-                    <h2 class="intro-text text-center">
-                        <strong>Ingredients</strong>
-                    </h2>
-                    <form id="ingredientForm">
-                        <div class="form-group row" id ="ingredientBoxOG">
-                            <label for="example-text-input" class="col-2 col-form-label">Ingredient 1</label>
+            <div class="row">
+                <div class="col-md-3" id="ingredientColumn">
+                    <h2 class="intro-text text-center"><strong>Ingredients</strong></h2>
+                    <form id="ingredientForm" name="ingredientForm">
+                        <div class="form-group row" id="ingredientBoxOG">
+                            <label class="col-2 col-form-label" for="example-text-input">Ingredient 1</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="ingredient">
-                            </div> 
-                            <label for="example-text-input" class="col-2 col-form-label">Ingredient 2</label>
+                                <input class="form-control" id="ingredient" type="text">
+                            </div><label class="col-2 col-form-label" for="example-text-input">Ingredient 2</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="ingredient">
-                            </div> 
-                            <label for="example-text-input" class="col-2 col-form-label">Ingredient 3</label>
+                                <input class="form-control" id="ingredient" type="text">
+                            </div><label class="col-2 col-form-label" for="example-text-input">Ingredient 3</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="ingredient">
-                            </div> 
-                            <label for="example-text-input" class="col-2 col-form-label">Ingredient 4</label>
+                                <input class="form-control" id="ingredient" type="text">
+                            </div><label class="col-2 col-form-label" for="example-text-input">Ingredient 4</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="ingredient">
-                            </div> 
-                            <label for="example-text-input" class="col-2 col-form-label">Ingredient 5</label>
+                                <input class="form-control" id="ingredient" type="text">
+                            </div><label class="col-2 col-form-label" for="example-text-input">Ingredient 5</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="ingredient">
+                                <input class="form-control" id="ingredient" type="text">
                             </div>
-
-                            <div id ="ingredientBox">
-
-                            </div>
+                            <div id="ingredientBox"></div>
                         </div>
-
-                        <div id ="submitContainer">
-                            <button class="glyphicon glyphicon-plus" id ="plus-sign" aria-hidden="true"></button>
-
-                            <span>  
-                                <button type="button" class="btn btn-warning" id="submit">Submit</button>
-                                <button type="reset" class="btn btn-danger" id="clear">Clear</button>
-
-                            </span> 
+                        <div id="submitContainer">
+                            <button aria-hidden="true" class="glyphicon glyphicon-plus" id="plus-sign"></button> <span><button class="btn btn-warning" id="submit" type="button"><span>Submit</span> <button class="btn btn-danger" id="clear" type="reset">Clear</button></button></span>
                         </div>
-
-                    </form> 
+                    </form>
                 </div>
-
-                <div class = "col-md-3" id ="recipeColumn"> 
-
-                    <h2 class="intro-text text-center">
-                        <strong>Recipe</strong>
-                    </h2>
-
-                    <div id = "recipeReturn"> 
-
-                    </div> 
+                <div class="col-md-3" id="recipeColumn">
+                    <h2 class="intro-text text-center"><strong>Recipe</strong></h2>
+                    <div id="recipeReturn"></div>
                 </div>
-
-                <div class = "col-md-3" id ="videoColumn"> 
-                    <h2 class="intro-text text-center">
-                        <strong>Related Videos:</strong>
-                    </h2> 
-
-                    <div id="videoReturn"> 
-
-                    </div> 
-
+                <div class="col-md-3" id="videoColumn">
+                    <h2 class="intro-text text-center"><strong>Related Videos:</strong></h2>
+                    <div id="videoReturn"></div>
                 </div>
-
-            </div> 
-
-            <div class = "col-md-3"> 
-            canvas
-            <canvas id="myChart" width="300" height="300"></canvas> 
-            </div> 
-            <div class = "col-md-3" id ="chart"> 
-                chart 
             </div>
-            <div class = "col-md-3" id ="mostRecent"> 
+            <div class="col-md-3">
+                canvas
+                <canvas height="300" id="myChart" width="300"></canvas>
+            </div>
+            <div class="col-md-3" id="chart">
+                chart
+            </div>
+            <div class="col-md-3" id="mostRecent">
                 most recent
             </div>
-
-
         </div>
-
-
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Beer Bites
-                        <strong>Instructions</strong>
-                    </h2>
+                    <h2 class="intro-text text-center">Beer Bites <strong>Instructions</strong></h2>
                     <hr>
-                    <p>Beer Bites is perfect for the days when you don't know what to cook for yourself, but have a fridge full of food.  To start, simply input the ingredients that would like to use from your refridgerator under the "Ingredients" header up above.</p>
+                    <p>Beer Bites is perfect for the days when you don't know what to cook for yourself, but have a fridge full of food. To start, simply input the ingredients that would like to use from your refridgerator under the "Ingredients" header up above.</p>
                     <p>Beer Bites when then use this information to formulate a recipe that you can use to cook up these ingredients! On top of that, Beer Bites will recommend a beer that would pair well with the given recipe idea! Feel free to try any assortment of ingredients!</p>
                 </div>
             </div>
         </div>
-
-    </div>
-    <!-- /.container -->
-
+    </div><!-- /.container -->
     <footer>
         <div class="container">
             <div class="row">
@@ -179,14 +109,11 @@
                 </div>
             </div>
         </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
+    </footer><!-- jQuery -->
+    <script src="js/jquery.js">
+    </script> <!-- Bootstrap Core JavaScript -->
+     
+    <script src="js/bootstrap.min.js">
+    </script>
 </body>
-
 </html>
