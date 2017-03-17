@@ -98,4 +98,8 @@ thead,tbody,tr,td,th{
   display:block;
 }
 
+#error {
+  visibility: hidden;
+}
+
 
