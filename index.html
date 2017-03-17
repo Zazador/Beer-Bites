@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <title>Beer Bites - The infamous beer pairing application!</title><!-- Bootstrap Core CSS -->
+    <title>Get Cookin' - The infamous reicipe generating application!</title><!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"><!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet"><!-- Link to external bootstrap-->
 
@@ -24,6 +24,7 @@
     </script><!--Link to Zach's JS file -->
     <script src="index.js">
     </script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
 </head>
 <body>
     <div class="brand"></div>
@@ -34,7 +35,7 @@
                     <div class="carousel slide" id="carousel-example-generic">
                         <!-- Indicators -->
                         <!-- Wrapper for slides -->
-                        <div><img alt="BEEERBITES!!" src="img/GetCookinLogo.png" style="width: 325px"></div>
+                        <div><img alt="Get Cookin!!" src="img/GetCookinLogo.png" style="width: 325px"></div>
                         <p>The World-Renown Recipe-Generating App</p>
                     </div>
                 </div>
@@ -72,6 +73,13 @@
                 <div class="col-md-3" id="recipeColumn">
                     <h2 class="intro-text text-center"><strong>Recipe</strong></h2>
                     <div id="recipeReturn"></div>
+                    <h5 id="recipeTitle"></h5>
+                    <img src="" class="img-thumbnail" height="169" width="300" id="recipeImage">
+                    <table class="table table-fixed" id="ingredientList">
+                        <tbody>
+                            <tr></tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="col-md-3">
                     <h2 class="intro-text text-center"><strong>Nutrition</strong></h2>
@@ -104,6 +112,11 @@
             </div>
             <div class="col-md-3" id="mostRecent">
                 <h2 class="intro-text text-center"><strong>Recent Searches:</strong></h2>
+                <table class="table table-fixed" id="recentSearches">
+                    <tbody>
+                        <tr></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="row">

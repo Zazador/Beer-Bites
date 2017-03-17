@@ -1,5 +1,16 @@
 $(document).ready(function() {
-	console.log("start");
+
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyDthrCtQ2n7uSuuNmBemX6hN-5Kjiklrrc",
+		authDomain: "getcookin-1f9d5.firebaseapp.com",
+		databaseURL: "https://getcookin-1f9d5.firebaseio.com",
+		storageBucket: "getcookin-1f9d5.appspot.com",
+		messagingSenderId: "525184180683"
+	};
+	firebase.initializeApp(config);
+	var database = firebase.database();
+
 	var max_fields = 10; //maximum input boxes allowed
 	var wrapper = $("#ingredientBox"); //Fields wrapper
 	var add_button = $("#plus-sign"); //Add button ID
@@ -20,9 +31,9 @@ $(document).ready(function() {
 		var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + title + "&key=AIzaSyBqXcI3KIh9b6TZX5uqupoy-I6zT68irDY&" + "maxResults=3&dataType=json";
 		// Performing our AJAX GET request
 		$.ajax({
-				url: queryURL,
-				method: "GET",
-			})
+			url: queryURL,
+			method: "GET",
+		})
 			// After the data comes back from the API
 			.done(function(response) {
 				console.log("video V");
@@ -32,10 +43,10 @@ $(document).ready(function() {
 					//$("#videoReturn").append('<iframe width="300" height="169" src=https://www.youtube.com/embed/' + response.items[i].id.videoId + '?rel=0&amp;showinfo=0 frameborder="0" allowfullscreen></iframe>');
 				}
 			});
-	}
+		}
 
-	function food() {
-		var ingredients = "";
+		function food() {
+			var ingredients = "";
 		//Iterate through form to get all ingredients
 		$('#ingredientForm *').filter(':input').each(function() {
 			if ($(this).val().trim()) {
@@ -49,21 +60,20 @@ $(document).ready(function() {
 		var recipeID = 0;
 		// Performing our AJAX GET request
 		$.ajax({
-				url: searchURL,
-				method: "GET",
-				headers: {
-					"X-Mashape-Key": "d0ELoE2NYemshHsjC4UHoHlfN189p1ce0fZjsnJIIYtwhHJyBm",
-					"Accept": "application/json",
-					async: false
-				}
-			})
+			url: searchURL,
+			method: "GET",
+			headers: {
+				"X-Mashape-Key": "d0ELoE2NYemshHsjC4UHoHlfN189p1ce0fZjsnJIIYtwhHJyBm",
+				"Accept": "application/json",
+				async: false
+			}
+		})
 			// After the data comes back from the API
 			.done(function(response) {
 				// Storing an array of results in the results variable
 				console.log(response);
 				if (response[0].image) {
-					$("#recipeReturn").append(response[0].title);
-					$("#recipeReturn").append('<img src=' + response[0].image + ' height="169" width="300"></img>');
+					$("#recipeImage").attr("src", response[0].image);
 				}
 				var title = response[0].title;
 				videos(title);
@@ -71,25 +81,36 @@ $(document).ready(function() {
 				recipeID = response[0].id;
 				nutrition(recipeID);
 			});
-	}
+		}
 
-	function nutrition(recipeID) {
+		function nutrition(recipeID) {
 		// Constructing a URL to search Spoonacular for recipe based off ingredient parameters
 		var recipeURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeID + "/information?includeNutrition=true";
 		// Performing our AJAX GET request
 		$.ajax({
-				url: recipeURL,
-				method: "GET",
-				headers: {
-					"X-Mashape-Key": "d0ELoE2NYemshHsjC4UHoHlfN189p1ce0fZjsnJIIYtwhHJyBm",
-					"Accept": "application/json"
-				}
-			})
+			url: recipeURL,
+			method: "GET",
+			headers: {
+				"X-Mashape-Key": "d0ELoE2NYemshHsjC4UHoHlfN189p1ce0fZjsnJIIYtwhHJyBm",
+				"Accept": "application/json"
+			}
+		})
 			// After the data comes back from the API
 			.done(function(response) {
-				console.log(response);
+				console.log("title" + response.title);
+				var recipe = {
+					title: response.title,
+					url: response.sourceUrl
+				};
+
+				database.ref().push(recipe);
+				
+				// $("#ingredientList").append("<tr><th>Ingredient List</th></tr>");
+				for (var i = 0; i < response.extendedIngredients.length; i++) {
+					$('#ingredientList > tbody:last-child').append("<tr><td>" + response.extendedIngredients[i].originalString + "</td></tr>");
+				}
 				// Storing an array of results in the results variable
-				$("#recipeReturn").append(response.nutrition.nutrients[0].title + ": " + response.nutrition.nutrients[0].amount);
+				$("#recipeTitle").append('<a target="_blank" href="' + response.sourceUrl +  '">' + response.title + '</a>');
 				for (var i = 0; i < response.nutrition.nutrients.length; i++) {
 					if (response.nutrition.nutrients[i].title === "Fat") {
 						var fat = response.nutrition.nutrients[i].amount;
@@ -118,11 +139,18 @@ $(document).ready(function() {
 						}
 					}
 				});
+
+
+				database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+					var ingTitle = childSnapshot.val().title;
+					var ingUrl = childSnapshot.val().url;
+					$('#recentSearches > tbody').prepend("<tr><td>" + '<a href="' + ingUrl +  '">' + ingTitle + '</a>' + "</td></tr>");
+				});
 			});
-	}
-	$(document).on('click', '#clear', function() {
-		$("#ingredientBox").empty();
-		event.preventDefault();
-		x = 5;
-	})
-});
+		}
+		$(document).on('click', '#clear', function() {
+			$("#ingredientBox").empty();
+			event.preventDefault();
+			x = 5;
+		})
+	});
