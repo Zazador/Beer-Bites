@@ -78,11 +78,24 @@
 	vertical-align: top;
 
 
-   }
+}
 
-   #mostRecent { 
+#mostRecent { 
 
 	margin-left: 200px;
 
-    }
+}
+
+.table-fixed{
+  width: 100%;
+}
+tbody{
+  height:300px;
+  overflow-y:auto;
+  width: 100%;
+}
+thead,tbody,tr,td,th{
+  display:block;
+}
+
 

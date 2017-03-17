@@ -88,8 +88,9 @@ $(document).ready(function() {
 			// After the data comes back from the API
 			.done(function(response) {
 				console.log(response);
+				$('#recentSearches > tbody:last-child').prepend("<tr><td>" + '<a href="' + response.sourceUrl +  '">' + response.title + '</a>' + "</td></tr>");
 				// Storing an array of results in the results variable
-				$("#recipeReturn").append(response.nutrition.nutrients[0].title + ": " + response.nutrition.nutrients[0].amount);
+				$("#recipeReturn").append('<a href="' + response.sourceUrl +  '">' + response.title + '</a>');
 				for (var i = 0; i < response.nutrition.nutrients.length; i++) {
 					if (response.nutrition.nutrients[i].title === "Fat") {
 						var fat = response.nutrition.nutrients[i].amount;
