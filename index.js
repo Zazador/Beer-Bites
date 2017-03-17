@@ -15,6 +15,7 @@ $(document).ready(function() {
 	var wrapper = $("#ingredientBox"); //Fields wrapper
 	var add_button = $("#plus-sign"); //Add button ID
 	var x = 5; //initlal text box count
+	var index = 0;
 	$(add_button).click(function(addField) { //on add input button click
 		addField.preventDefault();
 		if (x < max_fields) { //max input box allowed
@@ -53,6 +54,9 @@ $(document).ready(function() {
 				console.log("this.val: " + $(this).val().trim());
 				ingredients += $(this).val().trim();
 				ingredients += ",";
+			} else {
+				$("#error").css("visibility", "visible");
+				return;
 			}
 		});
 		// Constructing a URL to search Spoonacular for recipe based off ingredient parameters
@@ -73,6 +77,7 @@ $(document).ready(function() {
 				// Storing an array of results in the results variable
 				console.log(response);
 				if (response[0].image) {
+					$("#recipeImage").attr("visibility", "visible");
 					$("#recipeImage").attr("src", response[0].image);
 				}
 				var title = response[0].title;
@@ -82,6 +87,13 @@ $(document).ready(function() {
 				nutrition(recipeID);
 			});
 		}
+
+		database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+			console.log("2")
+			var ingTitle = childSnapshot.val().title;
+			var ingUrl = childSnapshot.val().url;
+			$('#recentSearches > tbody').prepend("<tr><td>" + '<a href="' + ingUrl +  '">' + ingTitle + '</a>' + "</td></tr>");
+		});
 
 		function nutrition(recipeID) {
 		// Constructing a URL to search Spoonacular for recipe based off ingredient parameters
@@ -97,7 +109,8 @@ $(document).ready(function() {
 		})
 			// After the data comes back from the API
 			.done(function(response) {
-				console.log("title" + response.title);
+				console.log("nutrition: ");
+				console.log(response);
 				var recipe = {
 					title: response.title,
 					url: response.sourceUrl
@@ -105,12 +118,12 @@ $(document).ready(function() {
 
 				database.ref().push(recipe);
 				
-				// $("#ingredientList").append("<tr><th>Ingredient List</th></tr>");
+				$("#ingredientList tr").remove();
 				for (var i = 0; i < response.extendedIngredients.length; i++) {
 					$('#ingredientList > tbody:last-child').append("<tr><td>" + response.extendedIngredients[i].originalString + "</td></tr>");
 				}
 				// Storing an array of results in the results variable
-				$("#recipeTitle").append('<a target="_blank" href="' + response.sourceUrl +  '">' + response.title + '</a>');
+				$("#recipeTitle").html('<a target="_blank" href="' + response.sourceUrl +  '">' + response.title + '</a>');
 				for (var i = 0; i < response.nutrition.nutrients.length; i++) {
 					if (response.nutrition.nutrients[i].title === "Fat") {
 						var fat = response.nutrition.nutrients[i].amount;
@@ -128,6 +141,11 @@ $(document).ready(function() {
 						hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
 					}]
 				};
+
+				if (index >= 1) {
+					$("#chartDiv").html('<canvas height="300" id="myChart" width="300"></canvas>');
+				}
+				index++;
 				var ctx = document.getElementById("myChart");
 				// And for a doughnut chart
 				var myDoughnutChart = new Chart(ctx, {
@@ -141,14 +159,10 @@ $(document).ready(function() {
 				});
 
 
-				database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-					var ingTitle = childSnapshot.val().title;
-					var ingUrl = childSnapshot.val().url;
-					$('#recentSearches > tbody').prepend("<tr><td>" + '<a href="' + ingUrl +  '">' + ingTitle + '</a>' + "</td></tr>");
-				});
 			});
 		}
 		$(document).on('click', '#clear', function() {
+			$(".form-control").val("");
 			$("#ingredientBox").empty();
 			event.preventDefault();
 			x = 5;
