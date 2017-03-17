@@ -73,6 +73,7 @@ $(document).ready(function() {
 				// Storing an array of results in the results variable
 				console.log(response);
 				if (response[0].image) {
+					$("#recipeImage").attr("visibility", "visible");
 					$("#recipeImage").attr("src", response[0].image);
 				}
 				var title = response[0].title;
@@ -82,6 +83,13 @@ $(document).ready(function() {
 				nutrition(recipeID);
 			});
 		}
+
+		database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+			console.log("2")
+			var ingTitle = childSnapshot.val().title;
+			var ingUrl = childSnapshot.val().url;
+			$('#recentSearches > tbody').prepend("<tr><td>" + '<a href="' + ingUrl +  '">' + ingTitle + '</a>' + "</td></tr>");
+		});
 
 		function nutrition(recipeID) {
 		// Constructing a URL to search Spoonacular for recipe based off ingredient parameters
@@ -97,7 +105,7 @@ $(document).ready(function() {
 		})
 			// After the data comes back from the API
 			.done(function(response) {
-				console.log("title" + response.title);
+				console.log("1");
 				var recipe = {
 					title: response.title,
 					url: response.sourceUrl
@@ -141,11 +149,7 @@ $(document).ready(function() {
 				});
 
 
-				database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-					var ingTitle = childSnapshot.val().title;
-					var ingUrl = childSnapshot.val().url;
-					$('#recentSearches > tbody').prepend("<tr><td>" + '<a href="' + ingUrl +  '">' + ingTitle + '</a>' + "</td></tr>");
-				});
+
 			});
 		}
 		$(document).on('click', '#clear', function() {
