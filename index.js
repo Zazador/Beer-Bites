@@ -62,8 +62,7 @@ $(document).ready(function() {
 				// Storing an array of results in the results variable
 				console.log(response);
 				if (response[0].image) {
-					$("#recipeReturn").append(response[0].title);
-					$("#recipeReturn").append('<img src=' + response[0].image + ' height="169" width="300"></img>');
+					$("#recipeImage").attr("src", response[0].image);
 				}
 				var title = response[0].title;
 				videos(title);
@@ -89,8 +88,12 @@ $(document).ready(function() {
 			.done(function(response) {
 				console.log(response);
 				$('#recentSearches > tbody:last-child').prepend("<tr><td>" + '<a href="' + response.sourceUrl +  '">' + response.title + '</a>' + "</td></tr>");
+				// $("#ingredientList").append("<tr><th>Ingredient List</th></tr>");
+				for (var i = 0; i < response.extendedIngredients.length; i++) {
+					$('#ingredientList > tbody:last-child').append("<tr><td>" + response.extendedIngredients[i].originalString + "</td></tr>");
+				}
 				// Storing an array of results in the results variable
-				$("#recipeReturn").append('<a href="' + response.sourceUrl +  '">' + response.title + '</a>');
+				$("#recipeTitle").append('<a target="_blank" href="' + response.sourceUrl +  '">' + response.title + '</a>');
 				for (var i = 0; i < response.nutrition.nutrients.length; i++) {
 					if (response.nutrition.nutrients[i].title === "Fat") {
 						var fat = response.nutrition.nutrients[i].amount;
