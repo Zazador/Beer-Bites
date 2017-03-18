@@ -35,19 +35,15 @@
                     <div class="carousel slide" id="carousel-example-generic">
                         <!-- Indicators -->
                         <!-- Wrapper for slides -->
-                        <div><img alt="Get Cookin!!" src="img/GetCookinLogo.png" style="width: 325px"></div>
+                        <div><img alt="Get Cookin!!" src="img/GetCookinLogo.png" style="width: 200px"></div>
                         <p>The World-Renown Recipe-Generating App</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="box">
-        <div id="error" class="alert alert-danger alert-dismissable fade in">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
-                <strong>Please enter at least one ingredient.</strong>
-            </div>
-            <div class="row">
-                <div class="col-md-3" id="ingredientColumn">
+        <div class="row">
+            <div class="box">
+                <div class="col-md-4" id="ingredientColumn">
                     <h2 class="intro-text text-center"><strong>Ingredients</strong></h2>
                     <form id="ingredientForm" name="ingredientForm">
                         <div class="form-group row" id="ingredientBoxOG">
@@ -74,7 +70,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-3" id="recipeColumn">
+                <div class="col-md-4" id="recipeColumn">
                     <h2 class="intro-text text-center"><strong>Recipe</strong></h2>
                     <div id="recipeReturn"></div>
                     <h5 id="recipeTitle"></h5>
@@ -85,14 +81,16 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h2 class="intro-text text-center"><strong>Nutrition</strong></h2>
-                    <div id="chartDiv">
-                        <canvas height="300" id="myChart" width="300"></canvas>
-                    </div>
+                    <canvas height="300" id="myChart" width="300"></canvas>
                 </div>
 
             </div>
+            </div>
+
+            <div class="row">
+            <div class="box">
             <div class="col-md-6" id="videoColumn">
                 <h2 class="intro-text text-center"><strong>Related Videos:</strong></h2>
                 <div id="myCarousel" class="carousel slide">
@@ -124,7 +122,9 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+            </div>
+            </div>
+     
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
