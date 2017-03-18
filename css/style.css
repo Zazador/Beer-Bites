@@ -32,6 +32,12 @@
     text-align: left;
 }
 
+.col-md-3 {
+    width: 300px;
+    text-align: center;
+    margin-left: 45px;
+}
+
 #submitContainer {
     margin-bottom: 15px;
 }
