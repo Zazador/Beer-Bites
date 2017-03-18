@@ -1,116 +1,89 @@
-.row { 
-
-	margin-left: 5px;
-
+.row {
+    margin-left: 5px;
 }
 
 #recipeImage {
-
-  visibility: hidden;
-
+    visibility: hidden;
 }
 
-#ingredientColumn { 
-	
-	width: 300px;
-  margin-left: 30px
-  
-
-} 
-
-#recipeColumn { 
-
-	width: 300px;
-  text-align: center;
-  margin-left: 45px;
-
+#ingredientColumn {
+    width: 300px;
+    margin-left: 30px
 }
 
-.form-group { 
-
-  margin-top: 20px; 
-  width: 225px;
-
+#recipeColumn {
+    width: 300px;
+    text-align: center;
+    margin-left: 45px;
 }
 
-.col-10 { 
-
-  width: 200px;  
-  margin-top: 5px; 
-  margin-bottom: 5px; 
-
-} 
-
-.col-form-label { 
-
-  text-align: left;
-
+.form-group {
+    margin-top: 20px;
+    width: 225px;
 }
 
-#submitContainer { 
+.col-10 {
+    width: 200px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
-	margin-bottom: 15px;
+.col-form-label {
+    text-align: left;
+}
 
+#submitContainer {
+    margin-bottom: 15px;
 }
 
 #plus-sign {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
-  border: 0;
-  background: transparent; 
-  float: right; 
-  margin-right: 45px;
-
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+    float: right;
+    margin-right: 45px;
 }
 
-.btn-warning { 
-
-  margin-top: 30px; 
-  margin-left: 10px;
-  margin-right: 10px;
-  background-color: #E19F3E; 
-
-} 
-
-.btn-danger { 
-
-  margin-top: 30px; 
-
-
-} 
-
-#recipe { 
-
-	vertical-align: top;
-
-
+.btn-warning {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #E19F3E;
 }
 
-#mostRecent { 
+.btn-danger {
+    margin-top: 30px;
+}
 
-	margin-left: 200px;
+#recipe {
+    vertical-align: top;
+}
 
+#mostRecent {
+    margin-left: 200px;
 }
 
 #ingredientList {
-  font-size: 1.25em;
+    font-size: 1.25em;
 }
 
-.table-fixed{
-  width: 100%;
-}
-tbody{
-  height:300px;
-  overflow-y:auto;
-  width: 100%;
-}
-thead,tbody,tr,td,th{
-  display:block;
-}
-#error {
-  visibility: hidden;
+.table-fixed {
+    width: 100%;
 }
 
+tbody {
+    height: 300px;
+    overflow-y: auto;
+    width: 100%;
+}
 
+thead,
+tbody,
+tr,
+td,
+th {
+    display: block;
+}
