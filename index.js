@@ -73,7 +73,7 @@ $(document).ready(function() {
         }
 
         // Constructing a URL to search Spoonacular for recipe based off ingredient parameters
-        var searchURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + ingredients + "&limitLicense=false&number=1&ranking=1";
+        var searchURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + ingredients + "&limitLicense=false&number=1&ranking=2";
         var recipeID = 0;
         // Performing our AJAX GET request
         $.ajax({
