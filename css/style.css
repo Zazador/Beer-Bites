@@ -1,20 +1,28 @@
 .row { 
 
-	margin-left: 5px;
+  margin-left: 5px;
 
-} 
+}
+
+#recipeImage {
+
+  visibility: hidden;
+
+}
 
 #ingredientColumn { 
-	
-	width: 300px;
+  
+  width: 300px;
+  margin-left: 30px
+  
 
 } 
 
 #recipeColumn { 
 
-	width: 300px;
+  width: 300px;
   text-align: center;
-
+  margin-left: 45px;
 
 }
 
@@ -41,7 +49,7 @@
 
 #submitContainer { 
 
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 
 }
 
@@ -75,15 +83,19 @@
 
 #recipe { 
 
-	vertical-align: top;
+  vertical-align: top;
 
 
 }
 
 #mostRecent { 
 
-	margin-left: 200px;
+  margin-left: 200px;
 
+}
+
+#ingredientList {
+  font-size: 1.25em;
 }
 
 .table-fixed{
@@ -97,9 +109,8 @@ tbody{
 thead,tbody,tr,td,th{
   display:block;
 }
-
-#error {
-  visibility: hidden;
-}
+/*#error {
+ visibility: hidden;
+}*/
 
 

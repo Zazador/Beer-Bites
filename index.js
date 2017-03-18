@@ -16,6 +16,7 @@ $(document).ready(function() {
 	var add_button = $("#plus-sign"); //Add button ID
 	var x = 5; //initlal text box count
 	var index = 0;
+	var emptyIndex = 0;
 	$(add_button).click(function(addField) { //on add input button click
 		addField.preventDefault();
 		if (x < max_fields) { //max input box allowed
@@ -25,6 +26,11 @@ $(document).ready(function() {
 	});
 	$("#submit").on("click", function() {
 		food();
+	});
+
+	$('.alert .close').on('click', function(e) {
+		$(this).parent().hide();
+		emptyIndex = 0;
 	});
 
 	function videos(title) {
@@ -47,6 +53,7 @@ $(document).ready(function() {
 		}
 
 		function food() {
+			console.log("emptyIndex: " + emptyIndex);
 			var ingredients = "";
 		//Iterate through form to get all ingredients
 		$('#ingredientForm *').filter(':input').each(function() {
@@ -55,10 +62,15 @@ $(document).ready(function() {
 				ingredients += $(this).val().trim();
 				ingredients += ",";
 			} else {
-				$("#error").css("visibility", "visible");
-				return;
+				emptyIndex++;
 			}
 		});
+
+		if (emptyIndex >= 8) {
+			// console.log("emptyIndex: " + emptyIndex);
+			$('#error').show();
+			return;
+		}
 		// Constructing a URL to search Spoonacular for recipe based off ingredient parameters
 		var searchURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + ingredients + "&limitLicense=false&number=1&ranking=1";
 		var recipeID = 0;
@@ -77,8 +89,8 @@ $(document).ready(function() {
 				// Storing an array of results in the results variable
 				console.log(response);
 				if (response[0].image) {
-					$("#recipeImage").attr("visibility", "visible");
 					$("#recipeImage").attr("src", response[0].image);
+					$("#recipeImage").css("visibility", "visible");
 				}
 				var title = response[0].title;
 				videos(title);
