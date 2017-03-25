@@ -2,11 +2,11 @@ $(document).ready(function() {
 
     // Initialize Firebase
     var config = {
-        apiKey: "temp",
+        apiKey: "AIzaSyDthrCtQ2n7uSuuNmBemX6hN-5Kjiklrrc",
         authDomain: "getcookin-1f9d5.firebaseapp.com",
         databaseURL: "https://getcookin-1f9d5.firebaseio.com",
         storageBucket: "getcookin-1f9d5.appspot.com",
-        messagingSenderId: "temp"
+        messagingSenderId: "525184180683"
     };
     firebase.initializeApp(config);
     var database = firebase.database();
@@ -40,7 +40,7 @@ $(document).ready(function() {
     // This function handles pulling in Related Videos
     function videos(title) {
         // Constructing a URL to search YouTube for related videos
-        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + title + "&key=temp" + "maxResults=3&dataType=json";
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + title + "&key=AIzaSyBqXcI3KIh9b6TZX5uqupoy-I6zT68irDY&" + "maxResults=3&dataType=json";
         // Performing our AJAX GET request
         $.ajax({
                 url: queryURL,
@@ -80,7 +80,7 @@ $(document).ready(function() {
                 url: searchURL,
                 method: "GET",
                 headers: {
-                    "X-Mashape-Key": "temp",
+                    "X-Mashape-Key": "d0ELoE2NYemshHsjC4UHoHlfN189p1ce0fZjsnJIIYtwhHJyBm",
                     "Accept": "application/json",
                     async: false
                 }
@@ -116,7 +116,7 @@ $(document).ready(function() {
                 url: recipeURL,
                 method: "GET",
                 headers: {
-                    "X-Mashape-Key": "temp",
+                    "X-Mashape-Key": "d0ELoE2NYemshHsjC4UHoHlfN189p1ce0fZjsnJIIYtwhHJyBm",
                     "Accept": "application/json"
                 }
             })
